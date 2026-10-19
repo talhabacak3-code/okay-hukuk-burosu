@@ -1,0 +1,4 @@
+# Prettier LF kullanır; Windows checkout'larında satır sonu farkı oluşmasın.
+* text=auto eol=lf
+*.png binary
+*.ico binary
