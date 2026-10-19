@@ -13,6 +13,7 @@
     "check": "npm run typecheck && npm run lint && npm run build",
     "qa:compliance": "node scripts/qa/compliance-scan.mjs",
     "qa:launch": "node scripts/qa/compliance-scan.mjs --yayin",
+    "db:verify": "node --env-file=.env.local scripts/supabase/verify.mjs",
     "test:e2e": "playwright test",
     "brand:logo": "node scripts/branding/prepare-logo.mjs && node scripts/branding/prepare-og-image.mjs",
     "test": "node --no-warnings --import ./tests/register.mjs tests/admin-logic.test.mts && node --no-warnings tests/admin-authz.test.mts && node --no-warnings tests/compliance-patterns.test.mts && node --no-warnings --import ./tests/register.mjs tests/rate-limit.test.mts && node --no-warnings tests/db-migrations.test.mts"
