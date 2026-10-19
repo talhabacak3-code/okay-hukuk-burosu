@@ -119,6 +119,11 @@ export const legalNavigation = [
   routes.legalNotice,
 ] as const satisfies readonly RouteEntry[]
 
+/** Sondaki "/" atılır (statik dışa aktarımda trailingSlash açıktır: "/iletisim/"). */
+export function normalizePath(pathname: string) {
+  return pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname
+}
+
 export function isActivePath(pathname: string | null, href: string) {
   if (!pathname) return false
   if (href === "/") return pathname === "/"

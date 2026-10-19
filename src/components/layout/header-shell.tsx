@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 
 import { DARK_HERO_ID, DARK_HERO_PATHS } from "@/config/header"
+import { normalizePath } from "@/config/routes"
 import { cn } from "@/lib/utils"
 
 type FrameProps = {
@@ -44,7 +45,7 @@ export function HeaderFrame({
 /** Yol ve kaydırma durumunu izleyen başlık. Layout içinde <Suspense> ile sarılır. */
 export function HeaderShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const hasDarkHero = DARK_HERO_PATHS.has(pathname)
+  const hasDarkHero = DARK_HERO_PATHS.has(normalizePath(pathname))
   const headerRef = useRef<HTMLElement>(null)
   const [scrolled, setScrolled] = useState(false)
   const [pastHero, setPastHero] = useState(false)
