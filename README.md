@@ -137,6 +137,17 @@ hiçbir değişiklik kaydedilmez.
 
 Şifre sıfırlama şimdilik Supabase panelinden yapılır.
 
+## GitHub Pages önizlemesi
+
+Önizleme adresi: https://talhabacak3-code.github.io/okay-hukuk-burosu/ (`main`'e her gönderimde
+`.github/workflows/pages.yml` ile yeniden yayımlanır; arama motorlarına kapalıdır).
+
+Pages yalnızca statik dosya sunar. Bu sürümde **yönetim paneli, iletişim formu gönderimi
+(yerine telefon yönlendirmesi), güvenlik başlıkları (CSP) ve yönlendirmeler yoktur.**
+Derleme: `scripts/pages/prepare.mjs` (yalnızca CI kopyasında sunucu parçalarını ayıklar) →
+`GITHUB_PAGES=true next build` (statik dışa aktarım; Cache Components/PPR kapalı,
+`experimental.useCache` açık) → `scripts/pages/finalize.mjs`. Asıl yayın: [docs/yayin-kilavuzu.md](docs/yayin-kilavuzu.md).
+
 ## Uyum ve yayın öncesi kontrol
 
 Avukatlık reklam yasağı, arabuluculuk tanıtım kuralları ve KVKK için kontrol listesi:

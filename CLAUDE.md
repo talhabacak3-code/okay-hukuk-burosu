@@ -356,6 +356,19 @@ TBB Reklam Yasağı Yönetmeliği:
   Posta adresi/telefon/e-posta yalnızca `contact.verified === true` iken eklenir.
   Değerlendirme, puan, ödül, fiyat alanları hiç eklenmez.
 
+## GitHub Pages önizlemesi (statik)
+
+- `GITHUB_PAGES=true` → `next.config.ts`: `output: "export"`, `basePath` (NEXT_PUBLIC_BASE_PATH),
+  `trailingSlash`, `images.unoptimized`; Cache Components/PPR kapalı (dışa aktarım PPR'ı
+  desteklemez), `"use cache"` için `experimental.useCache`; headers/redirects yok.
+- `scripts/pages/prepare.mjs` (yalnızca CI'da; kaynak siler): admin, proxy, iletişim
+  eylemi, bilesenler, robots/sitemap çıkarılır; form → `contact-form.static.tsx`.
+  `scripts/pages/finalize.mjs`: önyükleme parçalarını düz adla kopyalar (aksi halde
+  prefetch 404), `.nojekyll`, yer tutucu yayın yolunu siler.
+- Alt yol: `next/image` basePath eklemez → `Logo` `basePath + src` kullanır; mutlak URL'ler
+  `absoluteUrl()` ile (site adresi alt yol içerebilir). Yol karşılaştırmalarında
+  `normalizePath()` (sondaki "/").
+
 ## Güvenlik
 
 - `next.config.ts` → tüm yanıtlara CSP, `X-Content-Type-Options`, `X-Frame-Options: DENY`,
