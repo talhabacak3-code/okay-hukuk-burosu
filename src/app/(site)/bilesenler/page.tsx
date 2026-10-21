@@ -138,7 +138,7 @@ export default function ComponentGalleryPage() {
             { label: "Bileşenler", href: "/bilesenler" },
           ]}
         />
-        <p className="mt-8 border border-dashed border-champagne-deep/50 p-4 text-sm text-champagne-deep">
+        <p className="mt-8 border border-dashed border-stone-deep/50 p-4 text-sm text-stone-deep">
           Geliştirme sayfası — üretimde yayınlanmaz. Tüm veriler örnektir.
         </p>
         <h1 className="mt-8 text-h1">Bileşenler</h1>
@@ -146,14 +146,52 @@ export default function ComponentGalleryPage() {
 
       <Section spacing="tight" aria-labelledby="g-logo">
         <Container className="space-y-8">
-          <SectionHeading id="g-logo" marker="Logo" title="Açık zeminler" />
-          <div className="grid gap-6 sm:grid-cols-3">
+          <SectionHeading
+            id="g-logo"
+            marker="Logo"
+            title="Zeminler ve düzenler"
+          />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {["bg-white", "bg-paper", "bg-paper-deep"].map((bg) => (
               <div key={bg} className={`${bg} border border-border p-6`}>
-                <Logo className="h-16" />
+                <Logo className="text-[16px]" />
                 <p className="mt-3 text-xs text-muted-foreground">{bg}</p>
               </div>
             ))}
+            <div className="surface-ink p-6">
+              <Logo className="text-[16px]" />
+              <p className="mt-3 text-xs text-muted-foreground">surface-ink</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-end gap-10 border border-border bg-paper p-8">
+            <Logo layout="stacked" className="text-[18px]" />
+            <div className="surface-ink p-8">
+              <Logo layout="stacked" className="text-[18px]" />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Paylaşım görseli kaynağı: scripts/branding/prepare-og-image.mjs bu çerçevenin
+          ekran görüntüsünü alır (1200×630, sitenin kendi fontlarıyla). */}
+      <Section spacing="tight" aria-labelledby="g-og">
+        <Container className="space-y-8">
+          <SectionHeading
+            id="g-og"
+            marker="Open Graph"
+            title="Paylaşım görseli"
+          />
+          <div className="overflow-x-auto">
+            <div
+              id="og-frame"
+              className="relative flex h-[630px] w-[1200px] shrink-0 items-center justify-center bg-paper text-ink-950"
+            >
+              <span
+                aria-hidden="true"
+                className="absolute inset-9 border border-stone"
+              />
+              <Logo layout="stacked" className="text-[30px]" />
+            </div>
           </div>
         </Container>
       </Section>
@@ -177,14 +215,14 @@ export default function ComponentGalleryPage() {
         </Container>
       </Section>
 
-      <Section surface="navy" spacing="tight" aria-labelledby="g-dark">
+      <Section surface="ink" spacing="tight" aria-labelledby="g-dark">
         <Container className="relative space-y-8">
           <FlowLine className="absolute top-0 right-0 hidden h-32 w-1/2 md:block" />
           <SectionHeading
             id="g-dark"
             marker="Koyu yüzey"
             title="Başlık ve düğme"
-            lede="Koyu zeminde etiket şampanya, metin kırık beyaz."
+            lede="Koyu zeminde etiket taş rengi, metin kırık beyaz."
           />
           <Button variant="onDark">Koyu zeminde düğme</Button>
         </Container>
@@ -196,7 +234,7 @@ export default function ComponentGalleryPage() {
             id="g-heading"
             marker="SectionHeading"
             title="Ortalanmış başlık"
-            lede="Logo alt yazısındaki iki yanlı altın kılçıklar."
+            lede="Logo alt yazısındaki iki yanlı taş rengi kılçıklar."
             align="center"
           />
         </Container>
@@ -247,14 +285,14 @@ export default function ComponentGalleryPage() {
       ))}
 
       <Section spacing="none" aria-label="AttorneyProfile — dolu örnek">
-        <p className="bg-navy-950 px-5 py-3 text-center text-sm text-paper">
+        <p className="bg-ink-950 px-5 py-3 text-center text-sm text-paper">
           AttorneyProfile — tüm alanları dolu örnek (teyitli arabuluculuk)
         </p>
         <AttorneyProfile attorney={sampleAttorneys[0]!} />
       </Section>
 
       <Section spacing="none" aria-label="AttorneyProfile — eksik alanlı örnek">
-        <p className="bg-navy-950 px-5 py-3 text-center text-sm text-paper">
+        <p className="bg-ink-950 px-5 py-3 text-center text-sm text-paper">
           AttorneyProfile — yalnızca ad soyad girilmiş örnek
         </p>
         <AttorneyProfile attorney={sampleAttorneys[1]!} />

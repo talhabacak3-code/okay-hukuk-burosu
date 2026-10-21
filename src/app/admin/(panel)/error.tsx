@@ -29,7 +29,7 @@ export default function PanelError({
       <button
         type="button"
         onClick={reset}
-        className="mt-6 inline-flex min-h-11 items-center border border-navy-950/80 px-5 text-sm font-medium hover:bg-navy-950 hover:text-paper"
+        className="mt-6 inline-flex min-h-11 items-center border border-ink-950/80 px-5 text-sm font-medium hover:bg-ink-950 hover:text-paper"
       >
         Tekrar dene
       </button>

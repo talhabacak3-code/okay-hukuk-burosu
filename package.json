@@ -15,7 +15,8 @@
     "qa:launch": "node scripts/qa/compliance-scan.mjs --yayin",
     "db:verify": "node --env-file=.env.local scripts/supabase/verify.mjs",
     "test:e2e": "playwright test",
-    "brand:logo": "node scripts/branding/prepare-logo.mjs && node scripts/branding/prepare-og-image.mjs",
+    "brand:logo": "node scripts/branding/prepare-mark.mjs",
+    "brand:og": "node scripts/branding/prepare-og-image.mjs",
     "test": "node --no-warnings --import ./tests/register.mjs tests/admin-logic.test.mts && node --no-warnings tests/admin-authz.test.mts && node --no-warnings tests/compliance-patterns.test.mts && node --no-warnings --import ./tests/register.mjs tests/rate-limit.test.mts && node --no-warnings tests/db-migrations.test.mts"
   },
   "dependencies": {
@@ -43,6 +44,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
+    "potrace": "^2.1.8",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "shadcn": "^4.22.0",

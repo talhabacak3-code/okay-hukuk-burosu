@@ -15,9 +15,9 @@ export function ContactForm({
   return (
     <div
       role="note"
-      className="border border-dashed border-champagne-deep/60 bg-paper-deep p-6 md:p-8"
+      className="border border-dashed border-stone-deep/60 bg-paper-deep p-6 md:p-8"
     >
-      <p className="eyebrow text-champagne-deep">Önizleme sürümü</p>
+      <p className="eyebrow text-stone-deep">Önizleme sürümü</p>
       <p className="mt-4 max-w-measure leading-relaxed">
         Bu önizleme sürümünde çevrim içi form kapalıdır; mesaj gönderilemez.
         Büroya ulaşmak için sağdaki iletişim bilgilerini kullanabilirsiniz.

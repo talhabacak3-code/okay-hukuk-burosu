@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Suspense } from "react"
 
 import { LoginForm } from "@/app/admin/giris/login-form"
-import { LogoPlaque } from "@/components/brand/logo-plaque"
+import { Logo } from "@/components/brand/logo"
 import { isSupabaseConfigured } from "@/lib/env"
 
 export const metadata: Metadata = { title: "Giriş" }
@@ -17,15 +17,10 @@ export default function LoginPage() {
 
   return (
     <main className="grid flex-1 lg:grid-cols-2">
-      <section className="surface-navy flex flex-col justify-between gap-12 px-6 py-10 sm:px-12 lg:py-16">
-        <LogoPlaque
-          eager
-          sizes="(min-width: 640px) 217px, 173px"
-          logoClassName="h-16 sm:h-20"
-          className="self-start"
-        />
+      <section className="surface-ink flex flex-col justify-between gap-12 px-6 py-10 sm:px-12 lg:py-16">
+        <Logo className="self-start text-[17px] text-paper sm:text-[19px]" />
         <div>
-          <p className="tagline-rule-start eyebrow text-champagne">
+          <p className="tagline-rule-start eyebrow text-stone">
             Yönetim paneli
           </p>
           <p className="mt-5 max-w-sm text-h3 text-paper">

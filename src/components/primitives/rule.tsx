@@ -6,14 +6,14 @@ export function Rule({
   tone = "line",
 }: {
   className?: string
-  tone?: "line" | "champagne"
+  tone?: "line" | "stone"
 }) {
   return (
     <span
       aria-hidden="true"
       className={cn(
         "block h-px w-full",
-        tone === "line" ? "bg-border" : "bg-champagne",
+        tone === "line" ? "bg-border" : "bg-stone",
         className,
       )}
     />

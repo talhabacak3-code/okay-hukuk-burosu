@@ -44,7 +44,7 @@ export function MobileNav() {
       >
         <SheetTitle className="sr-only">Menü</SheetTitle>
         <div className="flex h-[4.5rem] items-center justify-between border-b border-border px-5 sm:px-8 md:h-20">
-          <Logo decorative sizes="119px" className="h-11" />
+          <Logo decorative className="text-[16px]" />
           <SheetClose asChild>
             <button
               type="button"
@@ -73,14 +73,14 @@ export function MobileNav() {
                   >
                     <span
                       aria-hidden="true"
-                      className="w-6 shrink-0 eyebrow text-champagne-deep tabular-nums"
+                      className="w-6 shrink-0 eyebrow text-stone-deep tabular-nums"
                     >
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span
                       className={cn(
                         "font-serif text-[1.75rem] leading-tight transition-transform duration-500 ease-editorial group-hover:translate-x-1",
-                        active && "text-champagne-deep italic",
+                        active && "text-stone-deep italic",
                       )}
                     >
                       {item.label}
@@ -98,7 +98,7 @@ export function MobileNav() {
               <Link
                 href={item.href}
                 onNavigate={() => setOpen(false)}
-                className="inline-flex min-h-11 items-center underline-offset-4 hover:text-navy-950 hover:underline"
+                className="inline-flex min-h-11 items-center underline-offset-4 hover:text-ink-950 hover:underline"
               >
                 {item.label}
               </Link>

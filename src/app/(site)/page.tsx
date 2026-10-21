@@ -18,7 +18,7 @@ export const metadata = buildMetadata(
 )
 
 /**
- * Ana sayfa ritmi: lacivert giriş → açık künye → bej liste → lacivert bilgilendirme →
+ * Ana sayfa ritmi: mürekkep giriş → açık künye → bej liste → mürekkep bilgilendirme →
  * açık ekip → bej yayınlar → açık iletişim/konum → footer.
  */
 export default function HomePage() {

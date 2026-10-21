@@ -14,7 +14,7 @@ export function DataTable({
 }) {
   if (rows.length === 0) {
     return (
-      <div className="border border-dashed border-navy-950/20 p-8 text-sm text-muted-foreground">
+      <div className="border border-dashed border-ink-950/20 p-8 text-sm text-muted-foreground">
         {empty}
       </div>
     )
@@ -44,7 +44,7 @@ export function DataTable({
                   {index === 0 ? (
                     <Link
                       href={row.href}
-                      className="font-medium underline decoration-champagne underline-offset-4 hover:decoration-navy-950"
+                      className="font-medium underline decoration-stone underline-offset-4 hover:decoration-ink-950"
                     >
                       {cell}
                     </Link>
@@ -72,7 +72,7 @@ export function StatusPill({
     <span
       className={
         tone === "on"
-          ? "inline-flex items-center gap-1.5 text-navy-950 before:size-1.5 before:rounded-full before:bg-champagne-deep"
+          ? "inline-flex items-center gap-1.5 text-ink-950 before:size-1.5 before:rounded-full before:bg-stone-deep"
           : "inline-flex items-center gap-1.5 text-muted-foreground before:size-1.5 before:rounded-full before:bg-muted-foreground/50"
       }
     >

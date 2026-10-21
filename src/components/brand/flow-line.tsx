@@ -5,17 +5,17 @@ import * as m from "motion/react-m"
 import { cn } from "@/lib/utils"
 
 /**
- * Logodaki akışkan altın çizgiden esinlenen, özgün ve dekoratif ince eğriler.
- * Logodaki kurdelenin kopyası değildir; görünür olduğunda bir kez çizilir.
- * Reduced-motion tercihinde MotionProvider animasyonu atlar ve eğri doğrudan görünür.
+ * Amblemdeki hilalden türeyen ince, dekoratif daire yayları (taş rengi). Hilalin kopyası
+ * değildir; yalnızca yayın geometrisini ödünç alır. Görünür olduğunda bir kez çizilir.
+ * Reduced-motion tercihinde MotionProvider animasyonu atlar ve yay doğrudan görünür.
  */
 const paths = {
-  /** Soldan alçak başlayıp yükselen, sağda hafifçe kıvrılan uzun eğri. */
-  sweep: "M2 150 C 140 150, 210 18, 330 18 S 520 96, 598 40",
-  /** Yatay akışa yakın, iki yumuşak dalgalı uzun çizgi (bölüm altları için). */
-  drift: "M0 110 C 120 110, 170 60, 300 60 S 470 112, 600 70",
-  /** Tek, geniş yay. */
-  arc: "M4 156 C 120 40, 380 4, 596 30",
+  /** Soldan alçak başlayıp sağa doğru yükselen geniş yay. */
+  sweep: "M0 156 A 640 640 0 0 0 600 18",
+  /** Yatay akışa yakın, sığ bir hilal tabanı (bölüm altları için). */
+  drift: "M0 40 A 820 820 0 0 0 600 40",
+  /** Hilalin iç kavsine yakın, derin yay. */
+  arc: "M36 6 A 300 300 0 0 0 564 6",
 } as const
 
 export function FlowLine({
@@ -36,7 +36,7 @@ export function FlowLine({
       viewBox="0 0 600 160"
       fill="none"
       preserveAspectRatio="none"
-      className={cn("pointer-events-none text-champagne", className)}
+      className={cn("pointer-events-none text-stone", className)}
     >
       <m.path
         d={paths[variant]}

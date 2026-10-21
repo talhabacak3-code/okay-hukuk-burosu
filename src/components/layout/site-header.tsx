@@ -17,12 +17,10 @@ export function SiteHeader() {
         aria-label={`${siteConfig.name} — Ana sayfa`}
         className="site-header-logo -ml-1 inline-flex shrink-0 items-center p-1"
       >
-        {/* Oran 1361×503: 44px → ~119px, 52px → ~141px, 64px → ~173px genişlik */}
+        {/* Boyut font-size ile: amblem 2.75em → ~47 / 52 / 60px yükseklik. */}
         <Logo
           decorative
-          eager
-          sizes="(min-width: 1024px) 173px, (min-width: 768px) 141px, 119px"
-          className="h-11 transition-transform duration-500 ease-editorial md:h-[3.25rem] lg:h-16 [[data-scrolled]_&]:scale-[0.92]"
+          className="origin-left text-[17px] transition-transform duration-500 ease-editorial md:text-[19px] lg:text-[22px] [[data-scrolled]_&]:scale-[0.92]"
         />
       </Link>
 

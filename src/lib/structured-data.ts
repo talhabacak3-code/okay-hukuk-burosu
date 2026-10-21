@@ -34,7 +34,7 @@ export function legalServiceJsonLd(settings: SiteSettings) {
     name: siteConfig.name,
     legalName: resolve(settings.legalName),
     url: absolute("/"),
-    logo: absolute(brandAssets.cropped.src),
+    logo: absolute(brandAssets.markPng.src),
     ...(address && {
       address: {
         "@type": "PostalAddress",

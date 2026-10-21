@@ -81,7 +81,7 @@ export default async function ArticlePage({
 
         <div className="mt-10 grid gap-8 md:grid-cols-12">
           <header className="md:col-span-10 md:col-start-2 lg:col-span-8 lg:col-start-3">
-            <p className="tagline-rule-start flex-wrap eyebrow text-champagne-deep">
+            <p className="tagline-rule-start flex-wrap eyebrow text-stone-deep">
               <time dateTime={article.publishedAt}>
                 {formatDate(article.publishedAt)}
               </time>

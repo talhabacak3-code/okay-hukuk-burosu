@@ -47,7 +47,7 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`)
 }
 
-/** Yan menü bağlantıları (lacivert zemin). Görünür öğeler sunucuda role göre süzülür. */
+/** Yan menü bağlantıları (mürekkep zemin). Görünür öğeler sunucuda role göre süzülür. */
 export function AdminNav({
   groups,
   onNavigate,
@@ -61,7 +61,7 @@ export function AdminNav({
     <nav aria-label="Panel menüsü" className="space-y-7">
       {groups.map((group) => (
         <div key={group.title}>
-          <p className="px-3 font-sans text-[0.6875rem] font-medium tracking-[0.16em] text-champagne uppercase">
+          <p className="px-3 font-sans text-[0.6875rem] font-medium tracking-[0.16em] text-stone uppercase">
             {group.title}
           </p>
           <ul className="mt-2 space-y-0.5">
@@ -77,7 +77,7 @@ export function AdminNav({
                     className={cn(
                       "relative flex min-h-11 items-center gap-3 px-3 text-sm transition-colors",
                       active
-                        ? "bg-paper/10 text-paper before:absolute before:inset-y-2 before:left-0 before:w-0.5 before:bg-champagne"
+                        ? "bg-paper/10 text-paper before:absolute before:inset-y-2 before:left-0 before:w-0.5 before:bg-stone"
                         : "text-paper/75 hover:bg-paper/5 hover:text-paper",
                     )}
                   >

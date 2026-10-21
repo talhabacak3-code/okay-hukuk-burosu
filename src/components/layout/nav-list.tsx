@@ -29,7 +29,7 @@ export function NavList({ pathname }: { pathname: string | null }) {
                 <span
                   aria-hidden="true"
                   className={cn(
-                    "absolute inset-x-3 bottom-2 h-px origin-left bg-champagne transition-transform duration-500 ease-editorial",
+                    "absolute inset-x-3 bottom-2 h-px origin-left bg-stone transition-transform duration-500 ease-editorial",
                     active
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100",

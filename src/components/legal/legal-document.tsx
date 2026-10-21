@@ -32,14 +32,14 @@ export function LegalDocument({
           >
             Bu metinde
           </h2>
-          <ol className="mt-4 border-t border-navy-950/80 text-sm">
+          <ol className="mt-4 border-t border-ink-950/80 text-sm">
             {sections.map((section, index) => (
               <li key={section.id} className="border-b border-border">
                 <a
                   href={`#${section.id}`}
                   className="flex min-h-11 items-baseline gap-3 py-2.5 text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <span className="w-5 shrink-0 text-xs text-champagne-deep tabular-nums">
+                  <span className="w-5 shrink-0 text-xs text-stone-deep tabular-nums">
                     {index + 1}
                   </span>
                   {section.title}
@@ -58,9 +58,9 @@ export function LegalDocument({
               key={section.id}
               id={section.id}
               aria-labelledby={`${section.id}-baslik`}
-              className="scroll-mt-32 border-t border-border py-10 first:border-navy-950 first:pt-8"
+              className="scroll-mt-32 border-t border-border py-10 first:border-ink-950 first:pt-8"
             >
-              <p className="eyebrow text-champagne-deep">Madde {index + 1}</p>
+              <p className="eyebrow text-stone-deep">Madde {index + 1}</p>
               <h2 id={`${section.id}-baslik`} className="mt-3 text-h3">
                 {section.title}
               </h2>
@@ -69,9 +69,9 @@ export function LegalDocument({
                   "mt-5 max-w-measure leading-relaxed text-foreground/90",
                   "[&_ol+p]:mt-4 [&_p+ol]:mt-4 [&_p+p]:mt-4 [&_p+ul]:mt-4 [&_ul+p]:mt-4",
                   "[&_ol]:space-y-2.5 [&_ul]:space-y-2.5",
-                  "[&_ul>li]:relative [&_ul>li]:pl-6 [&_ul>li]:before:absolute [&_ul>li]:before:top-[0.8em] [&_ul>li]:before:left-0 [&_ul>li]:before:h-px [&_ul>li]:before:w-3 [&_ul>li]:before:bg-champagne",
-                  "[&_ol]:list-decimal [&_ol]:pl-6 [&_ol>li]:pl-1 [&_ol>li]:marker:text-champagne-deep",
-                  "[&_a]:underline [&_a]:decoration-champagne [&_a]:underline-offset-4 [&_a:hover]:decoration-navy-950",
+                  "[&_ul>li]:relative [&_ul>li]:pl-6 [&_ul>li]:before:absolute [&_ul>li]:before:top-[0.8em] [&_ul>li]:before:left-0 [&_ul>li]:before:h-px [&_ul>li]:before:w-3 [&_ul>li]:before:bg-stone",
+                  "[&_ol]:list-decimal [&_ol]:pl-6 [&_ol>li]:pl-1 [&_ol>li]:marker:text-stone-deep",
+                  "[&_a]:underline [&_a]:decoration-stone [&_a]:underline-offset-4 [&_a:hover]:decoration-ink-950",
                 )}
               >
                 {section.content}

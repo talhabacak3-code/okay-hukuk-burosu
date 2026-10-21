@@ -4,7 +4,7 @@ import {
   collectErrors,
   expectNotFound,
   expectNoHorizontalOverflow,
-  LOGO_RATIO,
+  MARK_RATIO,
   visibleLogos,
 } from "./helpers"
 
@@ -34,7 +34,7 @@ test.describe("Kamuya açık sayfalar", () => {
       await expect(page.locator("h1")).toHaveText(h1)
       await expect(page).toHaveTitle(/OKAY Hukuk/)
 
-      // Logo: her sayfada en az bir görünür onaylı logo; oran ve renk değiştirilmemiş.
+      // Logo: her sayfada en az bir görünür onaylı amblem + "OKAY HUKUK DANIŞMANLIK"; oran korunmuş.
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
       await page.waitForTimeout(400)
       await page.evaluate(() => window.scrollTo(0, 0))
@@ -42,13 +42,11 @@ test.describe("Kamuya açık sayfalar", () => {
         .poll(async () => (await visibleLogos(page)).length)
         .toBeGreaterThan(0)
       for (const logo of await visibleLogos(page)) {
-        expect(logo.src).toMatch(/okay-logo/)
-        expect(Math.abs(logo.ratio - LOGO_RATIO) / LOGO_RATIO).toBeLessThan(
+        expect(Math.abs(logo.ratio - MARK_RATIO) / MARK_RATIO).toBeLessThan(
           0.02,
         )
-        expect(Math.abs(logo.natural - LOGO_RATIO) / LOGO_RATIO).toBeLessThan(
-          0.02,
-        )
+        expect(logo.text).toContain("OKAY")
+        expect(logo.text).toContain("HUKUK DANIŞMANLIK")
         expect(logo.filter).toBe("none")
       }
 
@@ -57,15 +55,18 @@ test.describe("Kamuya açık sayfalar", () => {
     })
   }
 
-  test("ana sayfa: hero, logo tabelası ve bölümler", async ({ page }) => {
+  test("ana sayfa: hero, logo ve bölümler", async ({ page }) => {
     await page.goto("/")
     await expect(page.locator("#giris")).toBeVisible()
     await expect(page.getByRole("heading", { level: 1 })).toContainText(
       "Mesleğe Özen.",
     )
-    // Koyu hero'da logo yalnızca açık zeminli tabelada (LogoPlaque) görünür.
-    const heroLogo = page.locator('#giris img[src*="okay-logo"]')
+    // Koyu hero'da logo kırık beyaz amblem + yazı olarak görünür; başlıktaki logo gizlidir.
+    const heroLogo = page.locator("#giris [data-okay-logo]")
     await expect(heroLogo.first()).toBeVisible()
+    await expect(heroLogo.first()).toHaveAccessibleName(
+      /OKAY Hukuk Danışmanlık/,
+    )
     await expect(page.getByRole("heading", { level: 2 }).first()).toBeVisible()
     await expect(page.getByRole("contentinfo")).toBeVisible()
   })

@@ -38,7 +38,7 @@ export default async function HomeContentPage() {
           />
           <TextField
             name="heroLine2"
-            label="Başlık — 2. satır (altın renkli)"
+            label="Başlık — 2. satır (taş rengi, italik)"
             defaultValue={content.heroLine2}
             maxLength={60}
             hint={`Boşsa: "${pageDefaults.heroLine2}"`}

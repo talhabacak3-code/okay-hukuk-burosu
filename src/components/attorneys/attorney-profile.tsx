@@ -46,7 +46,7 @@ export function AttorneyProfile({ attorney }: { attorney: Attorney }) {
             />
 
             <div className="md:col-span-7 lg:col-span-7 lg:col-start-6">
-              <p className="tagline-rule-start animate-rise eyebrow text-champagne-deep">
+              <p className="tagline-rule-start animate-rise eyebrow text-stone-deep">
                 {routes.attorneys.marker} · Avukat profili
               </p>
               <h1
@@ -66,7 +66,7 @@ export function AttorneyProfile({ attorney }: { attorney: Attorney }) {
                 />
               </div>
 
-              <dl className="mt-10 animate-rise border-t border-navy-950 [animation-delay:200ms]">
+              <dl className="mt-10 animate-rise border-t border-ink-950 [animation-delay:200ms]">
                 <ProfileFact term="Baro">
                   <FieldValue value={attorney.barAssociation} label="Baro" />
                 </ProfileFact>
@@ -138,7 +138,7 @@ export function AttorneyProfile({ attorney }: { attorney: Attorney }) {
 
           <CvSection id="faaliyet-alanlari" title="Faaliyet alanları">
             {attorney.practiceAreas.length > 0 ? (
-              <ul className="grid gap-x-10 border-t border-navy-950/80 sm:grid-cols-2">
+              <ul className="grid gap-x-10 border-t border-ink-950/80 sm:grid-cols-2">
                 {attorney.practiceAreas.map((area) => (
                   <li
                     key={area}
@@ -146,7 +146,7 @@ export function AttorneyProfile({ attorney }: { attorney: Attorney }) {
                   >
                     <span
                       aria-hidden="true"
-                      className="h-px w-4 shrink-0 translate-y-[-0.3em] bg-champagne"
+                      className="h-px w-4 shrink-0 translate-y-[-0.3em] bg-stone"
                     />
                     <span className="font-serif text-lg">{area}</span>
                   </li>
@@ -159,7 +159,7 @@ export function AttorneyProfile({ attorney }: { attorney: Attorney }) {
 
           {mediator ? (
             <CvSection id="arabuluculuk" title="Arabuluculuk">
-              <dl className="border-t border-navy-950/80">
+              <dl className="border-t border-ink-950/80">
                 <ProfileFact term="Arabulucular Sicili no">
                   {mediator.registryNo}
                 </ProfileFact>
@@ -221,7 +221,7 @@ function CvSection({
       >
         <h2
           id={`${id}-baslik`}
-          className="tagline-rule-start self-start font-sans text-sm font-medium tracking-[0.14em] text-champagne-deep uppercase md:col-span-3"
+          className="tagline-rule-start self-start font-sans text-sm font-medium tracking-[0.14em] text-stone-deep uppercase md:col-span-3"
         >
           {title}
         </h2>
@@ -239,7 +239,7 @@ function CvRow({
   children: React.ReactNode
 }) {
   return (
-    <li className="grid gap-2 border-t border-border py-5 first:border-navy-950/80 sm:grid-cols-[9rem_1fr] sm:gap-8">
+    <li className="grid gap-2 border-t border-border py-5 first:border-ink-950/80 sm:grid-cols-[9rem_1fr] sm:gap-8">
       <span className="text-sm text-muted-foreground tabular-nums">
         {aside}
       </span>
@@ -250,7 +250,7 @@ function CvRow({
 
 function EmptyRow({ label }: { label: string }) {
   return (
-    <div className="border-t border-navy-950/80 py-5">
+    <div className="border-t border-ink-950/80 py-5">
       <Placeholder label={label} />
       <p className="mt-3 text-sm text-muted-foreground">
         Yönetim panelinden, doğrulanmış bilgiyle doldurulacak.

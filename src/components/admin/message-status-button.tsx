@@ -33,7 +33,7 @@ export function MessageStatusButton({
       <button
         type="submit"
         disabled={pending}
-        className="inline-flex min-h-11 items-center border border-navy-950/60 px-4 text-sm font-medium hover:bg-navy-950 hover:text-paper disabled:opacity-50"
+        className="inline-flex min-h-11 items-center border border-ink-950/60 px-4 text-sm font-medium hover:bg-ink-950 hover:text-paper disabled:opacity-50"
       >
         {pending ? "…" : label}
       </button>

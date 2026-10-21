@@ -38,7 +38,7 @@ export function AdminMobileNav({
         side="left"
         showCloseButton={false}
         aria-describedby={undefined}
-        className="surface-navy w-[85vw] max-w-xs gap-0 border-none p-0"
+        className="surface-ink w-[85vw] max-w-xs gap-0 border-none p-0"
       >
         <SheetTitle className="sr-only">Panel menüsü</SheetTitle>
         <div className="flex h-16 items-center justify-end px-4">

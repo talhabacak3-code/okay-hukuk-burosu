@@ -5,10 +5,10 @@ import { Slot } from "radix-ui"
 
 /**
  * Marka düğmesi (shadcn tabanlı). Keskin köşeler, ölçülü hareket:
- * - primary: lacivert zemin; üzerine gelindiğinde alttan şampanya çizgi uzar
- * - outline: ince lacivert çerçeve; üzerine gelindiğinde lacivert dolgu
+ * - primary: mürekkep zemin; üzerine gelindiğinde alttan taş rengi çizgi uzar
+ * - outline: ince mürekkep çerçeve; üzerine gelindiğinde mürekkep dolgu
  * - quiet: yalnızca metin + alt çizgi (ikincil yönlendirmeler)
- * - onDark: koyu zeminde şampanya çerçeve
+ * - onDark: koyu zeminde taş rengi çerçeve
  * En küçük boy bile 44px dokunma hedefini korur.
  * Bağlantılar için `asChild` ile <Link> sarın: düğme görünümlü bağlantı yine <a> kalır.
  */
@@ -25,15 +25,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: [
-          "bg-navy-950 text-paper hover:bg-navy-900",
-          "after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-champagne after:transition-transform after:duration-500 after:ease-editorial hover:after:scale-x-100",
+          "bg-ink-950 text-paper hover:bg-ink-900",
+          "after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-stone after:transition-transform after:duration-500 after:ease-editorial hover:after:scale-x-100",
         ],
         outline:
-          "border border-navy-950/80 bg-transparent text-navy-950 hover:bg-navy-950 hover:text-paper",
+          "border border-ink-950/80 bg-transparent text-ink-950 hover:bg-ink-950 hover:text-paper",
         quiet:
           "rounded-none border-b border-current/30 px-0 text-current hover:border-current",
         onDark:
-          "border border-champagne/70 bg-transparent text-paper hover:border-champagne hover:bg-champagne hover:text-navy-950",
+          "border border-stone/70 bg-transparent text-paper hover:border-stone hover:bg-stone hover:text-ink-950",
         // shadcn bileşenleri (ör. Sheet) içindeki ikon düğmeleri için korunur.
         ghost: "text-current hover:bg-paper-deep",
       },

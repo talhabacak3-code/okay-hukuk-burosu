@@ -55,7 +55,7 @@ export function SavedNotice({
   return (
     <p
       role="status"
-      className="mb-8 border-l-2 border-champagne bg-paper-deep p-4 text-sm font-medium"
+      className="mb-8 border-l-2 border-stone bg-paper-deep p-4 text-sm font-medium"
     >
       {children}
     </p>

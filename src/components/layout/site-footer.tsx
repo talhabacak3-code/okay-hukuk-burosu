@@ -24,19 +24,15 @@ export async function SiteFooter() {
 
   return (
     <footer>
-      {/* Logo açık zeminde: lacivert harfler koyu zeminde okunmaz (bkz. config/brand.ts). */}
       <div className="relative isolate overflow-hidden border-t border-border bg-paper-deep">
         <FlowLine
           variant="drift"
           className="absolute inset-x-0 bottom-0 -z-10 h-20 w-full opacity-60"
         />
         <Container className="flex flex-col items-start gap-8 py-12 md:flex-row md:items-center md:justify-between md:py-14">
-          <Logo
-            sizes="(min-width: 1024px) 260px, (min-width: 768px) 222px, 190px"
-            className="h-[4.5rem] md:h-[5.5rem] lg:h-24"
-          />
+          <Logo className="text-[17px] text-ink-950 md:text-[19px] lg:text-[21px]" />
           <div className="flex flex-col items-start gap-5 md:items-end">
-            <p className="tagline-rule-start eyebrow text-champagne-deep">
+            <p className="tagline-rule-start eyebrow text-stone-deep">
               {siteConfig.location.city} · {siteConfig.location.country}
             </p>
             <Button asChild variant="outline">
@@ -46,11 +42,11 @@ export async function SiteFooter() {
         </Container>
       </div>
 
-      <div className="surface-navy">
+      <div className="surface-ink">
         <Container className="pt-14 pb-10 md:pt-20">
           <div className="grid gap-12 md:grid-cols-12 md:gap-8">
             <nav aria-label="Alt menü" className="md:col-span-4 lg:col-span-3">
-              <h2 className="eyebrow text-champagne">Büro</h2>
+              <h2 className="eyebrow text-stone">Büro</h2>
               <ul className="mt-5 space-y-1">
                 {mainNavigation.map((item) => (
                   <li key={item.href}>
@@ -67,7 +63,7 @@ export async function SiteFooter() {
 
             <div className="md:col-span-8 md:grid md:grid-cols-2 md:gap-8 lg:col-span-8 lg:col-start-5">
               <div>
-                <h2 className="eyebrow text-champagne">İletişim</h2>
+                <h2 className="eyebrow text-stone">İletişim</h2>
                 <dl className="mt-5 space-y-4 text-[0.9375rem]">
                   <FooterFact term="Adres">
                     <MaybeValue value={contact.address} />
@@ -88,7 +84,7 @@ export async function SiteFooter() {
               </div>
 
               <div className="mt-12 md:mt-0">
-                <h2 className="eyebrow text-champagne">Mesleki bilgiler</h2>
+                <h2 className="eyebrow text-stone">Mesleki bilgiler</h2>
                 <dl className="mt-5 space-y-4 text-[0.9375rem]">
                   <FooterFact term="Baro">
                     <MaybeValue value={professional.barAssociation} />

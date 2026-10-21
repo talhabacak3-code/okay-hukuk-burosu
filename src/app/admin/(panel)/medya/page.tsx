@@ -64,7 +64,7 @@ export default async function MediaLibraryPage() {
           </span>
         </h2>
         {media.length === 0 ? (
-          <p className="mt-6 border border-dashed border-navy-950/20 p-8 text-sm text-muted-foreground">
+          <p className="mt-6 border border-dashed border-ink-950/20 p-8 text-sm text-muted-foreground">
             Henüz görsel yüklenmedi.
           </p>
         ) : (

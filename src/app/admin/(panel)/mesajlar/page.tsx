@@ -19,7 +19,7 @@ export default async function MessagesPage() {
         description="İletişim formundan gelen mesajlar (yalnızca yönetici görür). Kişisel veri içerir: saklama ve imha politikanıza göre arşivleyin ve silin."
       />
       {messages.length === 0 ? (
-        <p className="border border-dashed border-navy-950/20 p-8 text-sm text-muted-foreground">
+        <p className="border border-dashed border-ink-950/20 p-8 text-sm text-muted-foreground">
           Mesaj yok.
         </p>
       ) : (
@@ -30,7 +30,7 @@ export default async function MessagesPage() {
                 <p className="font-medium">
                   {message.full_name}
                   {message.status === "new" ? (
-                    <span className="ml-3 text-xs font-medium tracking-[0.12em] text-champagne-deep uppercase">
+                    <span className="ml-3 text-xs font-medium tracking-[0.12em] text-stone-deep uppercase">
                       Yeni
                     </span>
                   ) : null}

@@ -71,7 +71,7 @@ export default async function AboutPage() {
               <li key={attorney.slug}>
                 <Link
                   href={attorneyHref(attorney.slug)}
-                  className="underline decoration-champagne underline-offset-4 hover:decoration-navy-950"
+                  className="underline decoration-stone underline-offset-4 hover:decoration-ink-950"
                 >
                   {attorney.fullName}
                 </Link>
@@ -156,7 +156,7 @@ export default async function AboutPage() {
             />
           </div>
           <Reveal className="md:col-span-8 lg:col-span-8 lg:col-start-5">
-            <dl className="border-t border-navy-950">
+            <dl className="border-t border-ink-950">
               {resume.map((row) => (
                 <div
                   key={row.term}
@@ -194,11 +194,11 @@ export default async function AboutPage() {
               <RevealItem
                 as="li"
                 key={duty.title}
-                className="border-t border-navy-950/80 pt-6 pb-10"
+                className="border-t border-ink-950/80 pt-6 pb-10"
               >
                 <span
                   aria-hidden="true"
-                  className="font-serif text-5xl leading-none text-champagne-deep"
+                  className="font-serif text-5xl leading-none text-stone-deep"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -206,7 +206,7 @@ export default async function AboutPage() {
                 <p className="mt-3 leading-relaxed text-muted-foreground">
                   {duty.body}
                 </p>
-                <p className="mt-4 text-xs tracking-wide text-champagne-deep">
+                <p className="mt-4 text-xs tracking-wide text-stone-deep">
                   {duty.source}
                 </p>
               </RevealItem>
@@ -215,15 +215,15 @@ export default async function AboutPage() {
         </Container>
       </Section>
 
-      {/* Yönlendirme — lacivert bant */}
+      {/* Yönlendirme — mürekkep bant */}
       <Section
-        surface="navy"
+        surface="ink"
         spacing="tight"
         aria-labelledby="yonlendirme-baslik"
       >
         <Container className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="tagline-rule-start eyebrow text-champagne">
+            <p className="tagline-rule-start eyebrow text-stone">
               {routes.attorneys.marker}
             </p>
             <h2 id="yonlendirme-baslik" className="mt-4 text-h2">

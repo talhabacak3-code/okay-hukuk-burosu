@@ -1,29 +1,26 @@
 import { expect, type Page } from "@playwright/test"
 
-/** Onaylı logonun (1361×503) oranı; ±%2 tolerans. */
-export const LOGO_RATIO = 1361 / 503
+/** Onaylı amblemin (vektör, 1671×2286) oranı; ±%2 tolerans. */
+export const MARK_RATIO = 1671 / 2286
 
-/** Sayfadaki görünür onaylı logo görsellerini ve çizim oranlarını döndürür. */
+/** Sayfadaki görünür logo amblemlerini, çizim oranlarını ve logo yazısını döndürür. */
 export async function visibleLogos(page: Page) {
   return page.evaluate(() =>
-    [...document.querySelectorAll<HTMLImageElement>('img[src*="okay-logo"]')]
-      .filter((img) => {
-        const rect = img.getBoundingClientRect()
+    [...document.querySelectorAll<SVGSVGElement>("svg[data-okay-mark]")]
+      .filter((svg) => {
+        const rect = svg.getBoundingClientRect()
         return (
           rect.width > 0 &&
           rect.height > 0 &&
-          getComputedStyle(img).visibility !== "hidden"
+          getComputedStyle(svg).visibility !== "hidden"
         )
       })
-      .map((img) => {
-        const rect = img.getBoundingClientRect()
+      .map((svg) => {
+        const rect = svg.getBoundingClientRect()
         return {
-          src: img.currentSrc || img.src,
           ratio: rect.width / rect.height,
-          natural: img.naturalWidth / img.naturalHeight,
-          complete: img.complete && img.naturalWidth > 0,
-          objectFit: getComputedStyle(img).objectFit,
-          filter: getComputedStyle(img).filter,
+          text: svg.closest("[data-okay-logo]")?.textContent ?? "",
+          filter: getComputedStyle(svg).filter,
         }
       }),
   )

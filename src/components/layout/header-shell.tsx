@@ -33,7 +33,7 @@ export function HeaderFrame({
       className={cn(
         "site-header sticky top-0 z-40 border-b bg-paper text-foreground transition-[background-color,color,border-color,box-shadow] duration-500 ease-editorial",
         scrolled
-          ? "border-border shadow-[0_1px_0_0_rgb(16_28_48/0.02),0_8px_24px_-16px_rgb(16_28_48/0.25)]"
+          ? "border-border shadow-[0_1px_0_0_rgb(19_18_16/0.02),0_8px_24px_-16px_rgb(19_18_16/0.25)]"
           : "border-transparent",
       )}
     >

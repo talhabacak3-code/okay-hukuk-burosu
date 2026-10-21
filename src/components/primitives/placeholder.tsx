@@ -17,8 +17,8 @@ export function Placeholder({
     <span
       data-placeholder=""
       className={cn(
-        "inline-flex max-w-full flex-wrap items-baseline gap-x-1.5 border border-dashed border-current/40 px-1.5 py-0.5 font-sans text-[0.8125rem] leading-snug text-champagne-deep",
-        "[.surface-navy_&]:text-champagne",
+        "inline-flex max-w-full flex-wrap items-baseline gap-x-1.5 border border-dashed border-current/40 px-1.5 py-0.5 font-sans text-[0.8125rem] leading-snug text-stone-deep",
+        "[.surface-ink_&]:text-stone",
         className,
       )}
     >
@@ -73,7 +73,7 @@ export function PendingBlock({
         className,
       )}
     >
-      <p className="eyebrow text-champagne-deep [.surface-navy_&]:text-champagne">
+      <p className="eyebrow text-stone-deep [.surface-ink_&]:text-stone">
         İçerik bekleniyor
       </p>
       <p className="mt-3 font-serif text-xl md:text-2xl">{title}</p>

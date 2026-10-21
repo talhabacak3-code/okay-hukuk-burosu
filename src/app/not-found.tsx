@@ -19,7 +19,7 @@ export default function NotFound() {
       <SiteHeader />
       <main id="icerik" tabIndex={-1} className="flex-1 outline-none">
         <Container className="grid gap-6 py-24 md:grid-cols-12 md:py-36">
-          <p className="eyebrow text-champagne-deep md:col-span-3 lg:col-span-2">
+          <p className="eyebrow text-stone-deep md:col-span-3 lg:col-span-2">
             404
           </p>
           <div className="md:col-span-9 lg:col-span-8">

@@ -4,34 +4,35 @@
 
 /*
  * OKAY Hukuk — tasarım tokenları
- * Görsel yön: "Mütalaa" — hukuki metin dizgisinden türeyen editoryal sistem,
- * onaylı logodan alınan üç işaretle: yüksek kontrastlı serif, altın kılçıklı
- * etiket satırı (logo alt yazısındaki çizgiler) ve ince altın akış eğrisi.
- * Marka renkleri: lacivert #101C30 · kırık beyaz #F7F5F0 · şampanya #B79B65
+ * Görsel yön: "Mütalaa" — hukuki metin dizgisinden türeyen editoryal sistem.
+ * Onaylı amblem (terazi · sütunlar · hilal · ok — "OK" + "AY") tek renkli, düz
+ * siyah bir işarettir; renk sistemi ondan türer: mürekkep ve kâğıt, aradaki tek
+ * vurgu sıcak "taş" grisi (mühür/taş baskı). Altın, lacivert, gradyan yoktur.
+ * Marka renkleri: mürekkep #131210 · kırık beyaz #F6F4EF · taş #A69E90
  *
- * LOGO: okay-logo-transparent.png yalnızca açık zeminlerde kullanılır
- * (lacivert harfler koyu zeminde ~1:1 kontrasta düşer). Koyu bölümlerde logo
- * açık bir zemin bandı üzerinde gösterilir; logo yeniden renklendirilmez.
+ * AMBLEM: <OkayMark> satır içi SVG'dir (currentColor). Açık zeminde mürekkep,
+ * koyu zeminde kırık beyaz kullanılır (tek renkli işaretin negatif kullanımı);
+ * biçimi değiştirilmez, başka renge boyanmaz.
  *
  * Kontrast notları (WCAG 2.2):
- *   navy-950 / paper ............ ~16:1  (gövde metni)
- *   ink-muted / paper ........... ~6.6:1 (ikincil metin)
- *   champagne-deep / paper ...... ~5.3:1 (açık zeminde altın metin)
- *   champagne / navy-950 ........ ~6.4:1 (koyu zeminde altın metin)
- *   champagne / paper ........... ~2.4:1 → METİN İÇİN KULLANILMAZ, yalnızca çizgi/dekor.
+ *   ink-950 / paper .............. ~17:1  (gövde metni)
+ *   ink-muted / paper ............ ~7.0:1 (ikincil metin)
+ *   stone-deep / paper ........... ~5.3:1 (açık zeminde vurgu metni; paper-deep'te ~4.8:1)
+ *   stone / ink-950 .............. ~7.1:1 (koyu zeminde vurgu metni)
+ *   stone / paper ................ ~2.4:1 → METİN İÇİN KULLANILMAZ, yalnızca çizgi/dekor.
  */
 
 @theme {
-  --color-navy-950: #101c30;
-  --color-navy-900: #16243c;
-  --color-navy-800: #1e304d;
-  --color-navy-700: #2c4062;
-  --color-paper: #f7f5f0;
-  --color-paper-deep: #efebe2;
-  --color-champagne: #b79b65;
-  --color-champagne-deep: #7a6234;
-  --color-ink-muted: #4c566a;
-  --color-line: #d9d2c3;
+  --color-ink-950: #131210;
+  --color-ink-900: #1c1b18;
+  --color-ink-800: #2a2824;
+  --color-ink-700: #3b3833;
+  --color-paper: #f6f4ef;
+  --color-paper-deep: #ece8e0;
+  --color-stone: #a69e90;
+  --color-stone-deep: #6b6458;
+  --color-ink-muted: #57534b;
+  --color-line: #d7d1c5;
 
   --font-serif: var(--font-bodoni-moda), "Didot", "Bodoni 72", Georgia, serif;
   --font-sans:
@@ -93,34 +94,34 @@
 /* shadcn semantik değişkenleri marka tokenlarına bağlanır. Dark mode bu aşamada yok. */
 :root {
   --background: var(--color-paper);
-  --foreground: var(--color-navy-950);
+  --foreground: var(--color-ink-950);
   --card: var(--color-paper);
-  --card-foreground: var(--color-navy-950);
+  --card-foreground: var(--color-ink-950);
   --popover: var(--color-paper);
-  --popover-foreground: var(--color-navy-950);
-  --primary: var(--color-navy-950);
+  --popover-foreground: var(--color-ink-950);
+  --primary: var(--color-ink-950);
   --primary-foreground: var(--color-paper);
   --secondary: var(--color-paper-deep);
-  --secondary-foreground: var(--color-navy-950);
+  --secondary-foreground: var(--color-ink-950);
   --muted: var(--color-paper-deep);
   --muted-foreground: var(--color-ink-muted);
   --accent: var(--color-paper-deep);
-  --accent-foreground: var(--color-navy-950);
+  --accent-foreground: var(--color-ink-950);
   --destructive: #a1311f;
   --border: var(--color-line);
   --input: var(--color-line);
-  --ring: var(--color-champagne-deep);
+  --ring: var(--color-stone-deep);
   --radius: 0.125rem;
 }
 
-/* Koyu (lacivert) yüzeyler: metin, çizgi ve odak rengi tersine çevrilir. */
-.surface-navy {
-  --background: var(--color-navy-950);
+/* Koyu (mürekkep) yüzeyler: metin, çizgi ve odak rengi tersine çevrilir. */
+.surface-ink {
+  --background: var(--color-ink-950);
   --foreground: var(--color-paper);
   --muted-foreground: color-mix(in oklab, var(--color-paper) 72%, transparent);
   --border: color-mix(in oklab, var(--color-paper) 14%, transparent);
-  --ring: var(--color-champagne);
-  background-color: var(--color-navy-950);
+  --ring: var(--color-stone);
+  background-color: var(--color-ink-950);
   color: var(--color-paper);
 }
 
@@ -162,12 +163,12 @@
     text-wrap: pretty;
   }
   ::selection {
-    background-color: var(--color-navy-950);
+    background-color: var(--color-ink-950);
     color: var(--color-paper);
   }
-  .surface-navy ::selection {
-    background-color: var(--color-champagne);
-    color: var(--color-navy-950);
+  .surface-ink ::selection {
+    background-color: var(--color-stone);
+    color: var(--color-ink-950);
   }
   button:not(:disabled),
   [role="button"]:not(:disabled) {
@@ -222,7 +223,7 @@
   }
 }
 
-/* Logo alt yazısındaki altın kılçıklardan türetilen etiket satırı: ── METİN ── */
+/* Logo alt yazısını çevreleyen taş rengi kılçıklardan türetilen etiket satırı: ── METİN ── */
 @utility tagline-rule {
   display: inline-flex;
   align-items: center;
@@ -234,7 +235,7 @@
     display: block;
     width: 1.75rem;
     height: 1px;
-    background-color: var(--color-champagne);
+    background-color: var(--color-stone);
   }
 }
 
@@ -249,20 +250,20 @@
     display: block;
     width: 1.75rem;
     height: 1px;
-    background-color: var(--color-champagne);
+    background-color: var(--color-stone);
   }
 }
 
 /*
- * Başlık, koyu hero üzerindeyken (ana sayfanın ilk ekranı): lacivert zemin, kırık beyaz
- * metin. Logo burada gizlenir; çünkü saydam logo lacivert zeminde okunmaz ve logo zaten
- * hero'daki açık zeminli tabelada gösterilir. Katmansız kural: utility sınıflarını ezer.
+ * Başlık, koyu hero üzerindeyken (ilk ekran): mürekkep zemin, kırık beyaz metin. Logo
+ * burada gizlenir; çünkü logo zaten hero'nun kendisinde büyük boyutta gösterilir (çift
+ * logo olmasın). Katmansız kural: utility sınıflarını ezer.
  */
 .site-header[data-theme="dark"] {
-  --background: var(--color-navy-950);
+  --background: var(--color-ink-950);
   --foreground: var(--color-paper);
-  --ring: var(--color-champagne);
-  background-color: var(--color-navy-950);
+  --ring: var(--color-stone);
+  background-color: var(--color-ink-950);
   color: var(--color-paper);
   border-color: transparent;
   box-shadow: none;

@@ -14,9 +14,9 @@ type SectionHeadingProps = {
 }
 
 /**
- * Bölüm başlığı. Üst etiket, logonun alt yazısındaki altın kılçıklı satırdan
+ * Bölüm başlığı. Üst etiket, logo alt yazısını çevreleyen taş rengi kılçıklı satırdan
  * türetilmiştir (sola hizalıda tek, ortalıda iki yanlı). Koyu yüzeylerde
- * (`surface-navy`) renkler otomatik uyarlanır.
+ * (`surface-ink`) renkler otomatik uyarlanır.
  */
 export function SectionHeading({
   id,
@@ -41,7 +41,7 @@ export function SectionHeading({
       {marker ? (
         <p
           className={cn(
-            "eyebrow text-champagne-deep [.surface-navy_&]:text-champagne",
+            "eyebrow text-stone-deep [.surface-ink_&]:text-stone",
             centered ? "tagline-rule" : "tagline-rule-start",
           )}
         >

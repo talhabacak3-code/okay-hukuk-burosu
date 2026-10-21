@@ -16,7 +16,7 @@ type PracticeCardProps = {
 
 /**
  * Çalışma alanı kartı — kutu değil, hukuki metin maddesi gibi: üstte ince çizgi
- * (üzerine gelince şampanya renginde soldan çizilir), madde numarası, başlık, kısa açıklama.
+ * (üzerine gelince taş renginde soldan çizilir), madde numarası, başlık, kısa açıklama.
  * Uzmanlık/üstünlük iddiası içermeyen, bilgilendirici kısa metin beklenir.
  */
 export function PracticeCard({
@@ -32,17 +32,14 @@ export function PracticeCard({
     <article
       className={cn(
         "group relative flex h-full flex-col border-t border-border pt-6 pb-8 transition-colors duration-500",
-        "before:absolute before:-top-px before:left-0 before:h-px before:w-full before:origin-left before:scale-x-0 before:bg-champagne before:transition-transform before:duration-700 before:ease-editorial",
+        "before:absolute before:-top-px before:left-0 before:h-px before:w-full before:origin-left before:scale-x-0 before:bg-stone before:transition-transform before:duration-700 before:ease-editorial",
         href && "focus-within:before:scale-x-100 hover:before:scale-x-100",
         // Bağlantı tüm kartı kaplar; odak halkası kartın kendisinde gösterilir.
         "has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-4 has-[a:focus-visible]:outline-ring has-[a:focus-visible]:outline-solid",
         className,
       )}
     >
-      <p
-        aria-hidden="true"
-        className="eyebrow text-champagne-deep tabular-nums"
-      >
+      <p aria-hidden="true" className="eyebrow text-stone-deep tabular-nums">
         {String(index).padStart(2, "0")}
       </p>
       <Heading className="mt-5 text-h3 text-balance">
@@ -63,7 +60,7 @@ export function PracticeCard({
       {href ? (
         <span
           aria-hidden="true"
-          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-navy-950"
+          className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-ink-950"
         >
           Ayrıntılar
           <ArrowUpRight

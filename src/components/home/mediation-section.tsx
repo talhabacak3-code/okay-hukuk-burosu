@@ -34,7 +34,7 @@ const principles = [
 export function MediationSection() {
   return (
     <Section
-      surface="navy"
+      surface="ink"
       aria-labelledby="arabuluculuk-baslik"
       className="relative isolate overflow-hidden"
     >
@@ -69,7 +69,7 @@ export function MediationSection() {
               >
                 <span
                   aria-hidden="true"
-                  className="pt-2 eyebrow text-champagne tabular-nums"
+                  className="pt-2 eyebrow text-stone tabular-nums"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -78,7 +78,7 @@ export function MediationSection() {
                   <p className="mt-3 leading-relaxed text-muted-foreground">
                     {item.body}
                   </p>
-                  <p className="mt-3 text-xs tracking-wide text-champagne">
+                  <p className="mt-3 text-xs tracking-wide text-stone">
                     {item.source}
                   </p>
                 </div>

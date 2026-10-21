@@ -16,7 +16,7 @@ type ArticleCardProps = {
 
 /**
  * Yayın kartı. Tarih, kategori, başlık ve kısa özet. Başlığın altı, üzerine
- * gelindiğinde şampanya renginde çizilir (background-size geçişi).
+ * gelindiğinde taş renginde çizilir (background-size geçişi).
  */
 export function ArticleCard({
   article,
@@ -29,7 +29,7 @@ export function ArticleCard({
   const featured = layout === "featured"
 
   const titleClass = cn(
-    "bg-[linear-gradient(var(--color-champagne),var(--color-champagne))] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5",
+    "bg-[linear-gradient(var(--color-stone),var(--color-stone))] bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5",
     "transition-[background-size] duration-700 ease-editorial",
     href &&
       "group-hover:bg-[length:100%_1px] group-focus-within:bg-[length:100%_1px]",
@@ -38,7 +38,7 @@ export function ArticleCard({
   return (
     <article
       className={cn(
-        "group relative flex h-full flex-col border-t border-navy-950/80 pt-5",
+        "group relative flex h-full flex-col border-t border-ink-950/80 pt-5",
         // Bağlantı tüm kartı kaplar; odak halkası kartın kendisinde gösterilir.
         "has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-4 has-[a:focus-visible]:outline-ring has-[a:focus-visible]:outline-solid",
         className,
@@ -50,10 +50,8 @@ export function ArticleCard({
         </time>
         {article.category ? (
           <>
-            <span aria-hidden="true" className="h-px w-4 bg-champagne" />
-            <span className="eyebrow text-champagne-deep">
-              {article.category}
-            </span>
+            <span aria-hidden="true" className="h-px w-4 bg-stone" />
+            <span className="eyebrow text-stone-deep">{article.category}</span>
           </>
         ) : null}
       </div>

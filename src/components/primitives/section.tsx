@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils"
 
-type Surface = "paper" | "paper-deep" | "navy"
+type Surface = "paper" | "paper-deep" | "ink"
 
 const surfaceClass: Record<Surface, string> = {
-  paper: "bg-paper text-navy-950",
-  "paper-deep": "bg-paper-deep text-navy-950",
-  navy: "surface-navy",
+  paper: "bg-paper text-ink-950",
+  "paper-deep": "bg-paper-deep text-ink-950",
+  ink: "surface-ink",
 }
 
 type SectionProps = React.ComponentPropsWithoutRef<"section"> & {

@@ -11,9 +11,9 @@ export function DraftNotice({ preparedOn }: { preparedOn: string }) {
       aria-label="Taslak uyarısı"
       data-draft=""
       data-placeholder=""
-      className="border border-dashed border-champagne-deep/60 bg-paper-deep p-5 md:p-6"
+      className="border border-dashed border-stone-deep/60 bg-paper-deep p-5 md:p-6"
     >
-      <p className="eyebrow text-champagne-deep">
+      <p className="eyebrow text-stone-deep">
         Taslak · Nihai hukuki onay bekliyor
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -39,7 +39,7 @@ export function Verify({ children }: { children: string }) {
   return (
     <span
       data-placeholder=""
-      className="border-b border-dashed border-champagne-deep/70 bg-paper-deep/80 px-1 text-champagne-deep"
+      className="border-b border-dashed border-stone-deep/70 bg-paper-deep/80 px-1 text-stone-deep"
     >
       <span className="sr-only">Teyit edilecek: </span>
       {children}

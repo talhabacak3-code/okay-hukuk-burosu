@@ -51,7 +51,7 @@ export async function AboutIntro() {
         <div className="space-y-10 md:col-span-7 lg:col-span-7 lg:col-start-6">
           <Reveal>
             <h3 className="eyebrow text-muted-foreground">Künye</h3>
-            <dl className="mt-4 border-t border-navy-950">
+            <dl className="mt-4 border-t border-ink-950">
               {facts.map((fact) => (
                 <div
                   key={fact.term}

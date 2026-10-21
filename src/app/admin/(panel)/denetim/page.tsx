@@ -22,7 +22,7 @@ export default async function AuditLogPage() {
         description="Son 200 işlem. Kayıtlar veritabanı tetikleyicileriyle tutulur, panelden değiştirilemez veya silinemez. Kişisel veri sızmaması için yalnızca değişen alan adları saklanır."
       />
       {rows.length === 0 ? (
-        <p className="border border-dashed border-navy-950/20 p-8 text-sm text-muted-foreground">
+        <p className="border border-dashed border-ink-950/20 p-8 text-sm text-muted-foreground">
           Henüz kayıtlı işlem yok.
         </p>
       ) : (

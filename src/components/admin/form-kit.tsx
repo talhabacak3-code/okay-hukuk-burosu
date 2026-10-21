@@ -66,7 +66,7 @@ export function AdminForm({
               "border-l-2 p-4 text-sm outline-none",
               state.status === "error"
                 ? "border-destructive bg-destructive/5 text-destructive"
-                : "border-champagne bg-paper-deep text-navy-950",
+                : "border-stone bg-paper-deep text-ink-950",
             )}
           >
             <p className="font-medium">{state.message}</p>
@@ -236,7 +236,7 @@ export function CheckboxField({
           type="checkbox"
           defaultChecked={defaultChecked}
           aria-describedby={describedBy(id, { hint: !!hint, error: !!error })}
-          className="mt-0.5 size-5 shrink-0 cursor-pointer accent-navy-950"
+          className="mt-0.5 size-5 shrink-0 cursor-pointer accent-ink-950"
         />
         <label htmlFor={id} className="cursor-pointer text-sm font-medium">
           {label}
@@ -315,7 +315,7 @@ export function FieldGroup({
 }) {
   return (
     <fieldset className="grid gap-6 border-t border-border pt-6 md:grid-cols-2">
-      <legend className="float-left mb-2 w-full font-sans text-xs font-medium tracking-[0.14em] text-champagne-deep uppercase md:col-span-2">
+      <legend className="float-left mb-2 w-full font-sans text-xs font-medium tracking-[0.14em] text-stone-deep uppercase md:col-span-2">
         {legend}
       </legend>
       {description ? (
@@ -356,7 +356,7 @@ export function FileField({
         aria-describedby={describedBy(id, { hint: !!hint, error: !!error })}
         className={cn(
           inputClass,
-          "h-auto cursor-pointer py-2.5 file:mr-4 file:cursor-pointer file:border-0 file:bg-navy-950 file:px-4 file:py-2 file:text-sm file:font-medium file:text-paper",
+          "h-auto cursor-pointer py-2.5 file:mr-4 file:cursor-pointer file:border-0 file:bg-ink-950 file:px-4 file:py-2 file:text-sm file:font-medium file:text-paper",
         )}
       />
     </FieldShell>

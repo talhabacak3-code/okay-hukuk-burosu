@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowUpRight, MapPin, Phone } from "lucide-react"
 
 import { FlowLine } from "@/components/brand/flow-line"
-import { LogoPlaque } from "@/components/brand/logo-plaque"
+import { Logo } from "@/components/brand/logo"
 import { ContactForm } from "@/components/contact/contact-form"
 import { Breadcrumb, rootBreadcrumb } from "@/components/navigation/breadcrumb"
 import {
@@ -39,7 +39,7 @@ function VerificationNote({
     <p
       data-placeholder=""
       className={
-        "border-l-2 border-champagne pl-3 text-xs leading-relaxed text-muted-foreground " +
+        "border-l-2 border-stone pl-3 text-xs leading-relaxed text-muted-foreground " +
         (className ?? "")
       }
     >
@@ -74,7 +74,7 @@ export default async function ContactPage() {
       <section
         id={DARK_HERO_ID}
         aria-labelledby="iletisim-baslik"
-        className="surface-navy relative isolate overflow-hidden"
+        className="surface-ink relative isolate overflow-hidden"
       >
         <FlowLine
           variant="drift"
@@ -88,16 +88,11 @@ export default async function ContactPage() {
           />
           <div className="mt-10 grid gap-12 md:mt-14 lg:grid-cols-12 lg:items-end lg:gap-8">
             <div className="lg:col-span-7">
-              {/* Blok kapsayıcı: tabela (inline-block) ile etiket aynı satıra düşmesin. */}
+              {/* Blok kapsayıcı: logo (inline-flex) ile etiket aynı satıra düşmesin. */}
               <div>
-                <LogoPlaque
-                  eager
-                  sizes="(min-width: 640px) 217px, 173px"
-                  logoClassName="h-16 sm:h-20 lg:h-20"
-                  className="animate-rise"
-                />
+                <Logo className="animate-rise text-[17px] text-paper sm:text-[19px]" />
               </div>
-              <p className="mt-10 tagline-rule-start animate-rise eyebrow text-champagne [animation-delay:80ms]">
+              <p className="mt-10 tagline-rule-start animate-rise eyebrow text-stone [animation-delay:80ms]">
                 {route.marker}
               </p>
               <h1
@@ -191,10 +186,10 @@ export default async function ContactPage() {
             aria-labelledby="buro-bilgileri-baslik"
             className="lg:col-span-4 lg:col-start-9"
           >
-            <div className="border-t border-navy-950 pt-6 lg:sticky lg:top-32">
+            <div className="border-t border-ink-950 pt-6 lg:sticky lg:top-32">
               <h2
                 id="buro-bilgileri-baslik"
-                className="tagline-rule-start font-sans text-sm font-medium tracking-[0.14em] text-champagne-deep uppercase"
+                className="tagline-rule-start font-sans text-sm font-medium tracking-[0.14em] text-stone-deep uppercase"
               >
                 Büro bilgileri
               </h2>
@@ -239,7 +234,7 @@ export default async function ContactPage() {
                 Kişisel verilerinizin işlenmesine ilişkin bilgi için{" "}
                 <Link
                   href={routes.privacyNotice.href}
-                  className="font-medium text-foreground underline decoration-champagne underline-offset-4 hover:decoration-navy-950"
+                  className="font-medium text-foreground underline decoration-stone underline-offset-4 hover:decoration-ink-950"
                 >
                   KVKK Aydınlatma Metni
                 </Link>

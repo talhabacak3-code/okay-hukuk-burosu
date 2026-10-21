@@ -104,9 +104,9 @@ export function ContactForm({
         ref={statusRef}
         tabIndex={-1}
         role="status"
-        className="border border-champagne/70 bg-paper p-8 outline-none md:p-10"
+        className="border border-stone/70 bg-paper p-8 outline-none md:p-10"
       >
-        <p className="tagline-rule-start eyebrow text-champagne-deep">
+        <p className="tagline-rule-start eyebrow text-stone-deep">
           Mesajınız alındı
         </p>
         <p className="mt-4 font-serif text-2xl">Teşekkür ederiz.</p>
@@ -142,9 +142,9 @@ export function ContactForm({
       {!deliveryConfigured ? (
         <div
           data-placeholder=""
-          className="border border-dashed border-champagne-deep/60 bg-paper-deep p-5 text-sm leading-relaxed"
+          className="border border-dashed border-stone-deep/60 bg-paper-deep p-5 text-sm leading-relaxed"
         >
-          <p className="eyebrow text-champagne-deep">Önizleme</p>
+          <p className="eyebrow text-stone-deep">Önizleme</p>
           <p className="mt-2 text-muted-foreground">
             Form altyapısı henüz bağlanmadı; gönderilen mesajlar büroya
             iletilmez. Doğrulama ve güvenlik kontrolleri çalışır.
@@ -292,7 +292,7 @@ export function ContactForm({
               hint: true,
               error: !!errors.kvkkAcknowledged,
             })}
-            className="mt-0.5 size-5 shrink-0 cursor-pointer accent-navy-950"
+            className="mt-0.5 size-5 shrink-0 cursor-pointer accent-ink-950"
             {...register("kvkkAcknowledged")}
           />
           <label
@@ -302,7 +302,7 @@ export function ContactForm({
             <Link
               href={routes.privacyNotice.href}
               target="_blank"
-              className="font-medium underline decoration-champagne underline-offset-4 hover:decoration-navy-950"
+              className="font-medium underline decoration-stone underline-offset-4 hover:decoration-ink-950"
             >
               KVKK Aydınlatma Metni
               <span className="sr-only"> (yeni sekmede açılır)</span>

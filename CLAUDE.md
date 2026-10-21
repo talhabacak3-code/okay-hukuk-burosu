@@ -9,10 +9,11 @@ başarı iddiası kullanmadan, uluslararası standartta, ağırbaşlı bir dijit
 
 - **Aşama 1 — Temel (tamamlandı):** proje yapısı, tasarım tokenları, global layout,
   Header/Footer, sayfa iskeletleri, siteConfig, SEO temeli, dokümantasyon.
-- **Aşama 2 — Marka ve bileşenler (tamamlandı):** onaylı logo entegrasyonu (kırpma +
-  saydam sürüm), logodan türetilen tasarım dili, Header/Footer, Button, SectionHeading,
+- **Aşama 2 — Marka ve bileşenler (tamamlandı; 2026-10-21'de yeni amblemle yenilendi):**
+  onaylı amblem (terazi · sütunlar · hilal · ok) vektörleştirildi, "OKAY HUKUK DANIŞMANLIK"
+  logo düzeni, amblemden türeyen mürekkep/kâğıt/taş renk sistemi, Header/Footer, Button, SectionHeading,
   PracticeCard, AttorneyCard, ArticleCard, Breadcrumb, hover/fade/scroll hareketleri.
-- **Aşama 3 — Ana sayfa (tamamlandı):** `components/home/*` — lacivert hero (logo tabelası,
+- **Aşama 3 — Ana sayfa (tamamlandı):** `components/home/*` — mürekkep hero (kırık beyaz logo,
   "Hukuka Saygı. / Mesleğe Özen.", gerçek büro fotoğrafı alanı), büro künyesi, faaliyet
   alanları, arabuluculuk bilgilendirmesi (6325 s. Kanun m.3–4 özetleri), avukatlar,
   yayınlar, iletişim ve konum. Veri yoksa bölümler açık yer tutucu gösterir.
@@ -21,7 +22,7 @@ başarı iddiası kullanmadan, uluslararası standartta, ağırbaşlı bir dijit
   (özgeçmiş düzenli profil; 1 kişi → yatay öne çıkan kart, 2/4 → iki sütun, 3+ → üç sütun),
   avukat veri modeli (Zod) + Supabase migration taslağı, KVKK Aydınlatma Metni ve Gizlilik
   Politikası **taslakları** (nihai hukuki onay bekliyor). `/ekip` → `/avukatlarimiz` (308).
-- **Aşama 7 — İletişim ve mobil (tamamlandı):** `/iletisim` koyu girişli (logo tabelada,
+- **Aşama 7 — İletişim ve mobil (tamamlandı):** `/iletisim` koyu girişli (logo hero'da,
   navbar koyu tema), hızlı arama/harita erişimi, büro bilgileri kartı, genel iletişim formu
   (RHF + Zod, Server Action, bal küpü + süre kontrolü, hız sınırı, T.C. kimlik no
   engeli). Form yalnızca Supabase kaydı başarılı olursa başarı gösterir; altyapı yoksa
@@ -97,7 +98,8 @@ npm test             # panel mantığı + yetki statik testi + uyum desenleri + 
 npm run qa:compliance -- http://localhost:3000   # çalışan sitede reklam yasağı taraması
 npm run qa:launch -- https://alanadi             # yayın kapısı: yer tutucu 0, robots açık, künye doğrulanmış
 npm run test:e2e     # Playwright (önce npm run build); E2E_BASE_URL, E2E_ADMIN_EMAIL/PASSWORD
-npm run brand:logo   # logo türevleri + Open Graph görseli
+npm run brand:logo   # amblem vektörü, favicon, JSON-LD görseli (kaynakla örtüşme denetlenir)
+npm run brand:og -- http://localhost:3000   # Open Graph görseli (dev sunucusu açıkken)
 ```
 
 Bu Next.js sürümü eğitim verisinden farklıdır: kod yazmadan önce
@@ -125,8 +127,8 @@ src/
     not-found.tsx       404 (site kabuğunu kendisi ekler)
     robots.ts, sitemap.ts, icon.svg
   components/
-    brand/              logo (onaylı logo, next/image), logo-plaque (koyu zemin için
-                        tabela), flow-line (dekoratif altın eğri)
+    brand/              logo (amblem + OKAY HUKUK DANIŞMANLIK), okay-mark (+ üretilmiş
+                        okay-mark-path), flow-line (hilalden türeyen dekoratif yay)
     attorneys/          attorney-portrait, attorney-grid (1–4+ kişiye göre yerleşim),
                         attorney-profile (özgeçmiş düzeni)
     cards/              practice-card, attorney-card, article-card
@@ -147,7 +149,7 @@ src/
   config/
     site.ts             siteConfig — tüm kurumsal bilgilerin TEK kaynağı
     routes.ts           sayfa kayıtları → navigasyon, metadata, sitemap
-    brand.ts            logo varlıkları (yol + boyut)
+    brand.ts            amblem varlıkları + logo erişilebilir adı
     header.ts           koyu hero'lu sayfalar (navbar teması)
   content/
     attorneys.ts        yerel avukat kayıtları — yalnızca Supabase yapılandırılmamışken kullanılır
@@ -166,7 +168,7 @@ src/
     content/attorneys.ts        getAttorneys / getAttorney / attorneyHref
     supabase/           server.ts (oturumlu), public.ts (anon, önbellekli okuma), cookies.ts
 supabase/migrations/    core_auth, attorneys, contact_messages, content (+ Storage), seed, rate_limits — TASLAK, uygulanmadı
-scripts/branding/       prepare-logo.mjs (logo türevleri + doğrulama), prepare-og-image.mjs (OG görseli)
+scripts/branding/       prepare-mark.mjs (amblem vektörü + favicon + doğrulama), prepare-og-image.mjs (OG görseli)
 scripts/qa/             compliance-scan.mjs — yayımlanan sayfalarda reklam yasağı/uyum taraması
 docs/                   uyum-kontrol-listesi.md, yayin-kilavuzu.md, yonetim-paneli-kilavuzu.md
 tests/                  admin-logic, admin-authz (yetki statik denetimi), compliance-patterns,
@@ -185,39 +187,44 @@ Yeni sayfa: `config/routes.ts`'e kayıt ekle → `app/(site)/<slug>/page.tsx` ol
 
 Hukuki metin dizgisinden türeyen editoryal sistem: ince kural çizgileri, madde
 numaraları (§ 01, yasal metinlerde Ek 1), asimetrik 12 kolon ızgara, bol beyaz alan.
-Altın yalnızca vurgu ve çizgi olarak kullanılır. Onaylı logodan alınan üç işaret:
-yüksek kontrastlı serif başlıklar, altın kılçıklı etiket satırı (`tagline-rule`,
-`tagline-rule-start` — logo alt yazısındaki çizgiler) ve ince altın akış eğrisi
-(`FlowLine` — `sweep` | `drift` | `arc`; logodaki kurdelenin kopyası değildir. Bölüm
-başına en fazla bir, hero'da en fazla iki; metnin arkasında ve düşük opaklıkta). Terazi
-ikonu tekrar edilmez — terazi yalnızca logonun içinde görünür.
+Renk sistemi onaylı amblemden türer: amblem tek renkli düz siyah bir işarettir →
+mürekkep ve kâğıt, aradaki tek vurgu sıcak "taş" grisi (mühür / taş baskı). Altın,
+lacivert, gradyan yoktur. Amblemden alınan işaretler: yüksek kontrastlı serif başlıklar
+(sütunlu, klasik amblemle uyumlu), taş rengi kılçıklı etiket satırı (`tagline-rule`,
+`tagline-rule-start` — logo alt yazısını çevreleyen çizgiler), sütunları yansıtan ince
+dikey ayırıcı (logo düzeninde) ve hilalden türeyen ince daire yayları (`FlowLine` —
+`sweep` | `drift` | `arc`; hilalin kopyası değildir. Bölüm başına en fazla bir, hero'da en
+fazla iki; metnin arkasında ve düşük opaklıkta). Terazi, hilal veya ok ikonu ayrıca
+kullanılmaz — yalnızca amblemin içinde görünür.
 
 ### Logo kuralları
 
-- Kaynak: `public/branding/okay-logo-original.png` (müşteri onaylı, değiştirilmez).
-  Türevler `node scripts/branding/prepare-logo.mjs` ile üretilir: `okay-logo.png`
-  (kırpılmış, beyaz zemin) ve `okay-logo-transparent.png` (color-to-alpha; beyaz zemine
-  konduğunda orijinalden ortalama 0,9/255 sapma — script doğrular).
-- Logo yeniden çizilmez; harfleri, terazi ve renkleri değiştirilmez, yeniden renklendirilmez.
-- Saydam logo **yalnızca açık zeminlerde** (`paper`, `paper-deep`, beyaz): lacivert
-  harfler lacivert zeminde ~1:1 kontrasta düşer. Koyu bölümlerde logo açık bir bant
-  üzerinde gösterilir (bkz. footer). Vektör/SVG sürüm yoktur; varmış gibi davranılmaz.
-- Koyu zeminde logo yalnızca `LogoPlaque` (açık zeminli, altın çerçeveli tabela) içinde
-  gösterilir — ana sayfa hero'su böyledir.
-- Ana sayfada başlık (navbar) hero üzerindeyken lacivert ve logosuzdur (logo hero'daki
-  tabelada); hero geçilince açık temaya ve logoya döner. Koyu hero'lu sayfalar
+- Amblem kaynağı: `public/branding/okay-mark-original.png` (müşterinin verdiği dosya,
+  değiştirilmez): terazi, sütunlar, hilal ve ok — "OK" + "AY" = OKAY.
+- `npm run brand:logo` (`scripts/branding/prepare-mark.mjs`) amblemi potrace ile
+  **otomatik vektörleştirir** (yeniden çizilmez) ve kaynakla piksel örtüşmesini denetler
+  (IoU ≥ 0,985; şu an 0,996). Çıktılar: `components/brand/okay-mark-path.ts` (elle
+  düzenlenmez), `public/branding/okay-mark.svg`, `okay-mark.png` (JSON-LD logosu),
+  `app/icon.svg`, `app/apple-icon.png`.
+- Logo = amblem + **"OKAY"** (Bodoni Moda, yarı kalın, geniş aralık) + **"HUKUK
+  DANIŞMANLIK"** (Instrument Sans). `<Logo layout="horizontal" | "stacked">`; boyut
+  `font-size` ile verilir (ör. `text-[17px] lg:text-[22px]`), her şey em ile orantılıdır.
+  Yazılar gerçek metindir; erişilebilir ad `logoAlt` (`config/brand.ts`).
+- Amblem `currentColor` ile çizilir: açık zeminde `ink-950`, koyu zeminde `paper`
+  (tek renkli işaretin negatif kullanımı). Başka renge boyanmaz, filtre/gölge/gradyan
+  uygulanmaz, oranı ve parçaları değiştirilmez. Ayırıcı ve kılçıklar `stone`.
+- Ana sayfada ve `/iletisim`'de başlık (navbar) koyu hero üzerindeyken logosuzdur (logo
+  hero'da büyük boyutta); hero geçilince açık temaya ve logoya döner. Koyu hero'lu sayfalar
   `config/header.ts` → `DARK_HERO_PATHS`, hero öğesinin id'si `DARK_HERO_ID`.
-- Header'da logo 44–64px yüksekliktedir; bu boyutta alt yazı satırı okunaklı değildir.
-  Firma adı bağlantının erişilebilir adında ve sayfa başlıklarında metin olarak bulunur.
-  Küçük boyutlar için (ör. yalnızca "OKAY" işareti) bir varyant ancak müşteri onayıyla
-  üretilebilir.
+- Header'da amblem ~47–60px; alt yazı en az ~9,5px. Daha küçük kullanım (favicon) yalnızca
+  amblemdir. Paylaşım görseli: `npm run brand:og -- <dev adresi>` (galerideki `#og-frame`).
 
-- **Renkler** (`globals.css`): `navy-950 #101C30`, `navy-900/800/700`, `paper #F7F5F0`,
-  `paper-deep #EFEBE2`, `champagne #B79B65`, `champagne-deep #7A6234`, `ink-muted #4C566A`,
-  `line #D9D2C3`.
-  - `champagne` kırık beyaz üzerinde ~2.4:1 → **açık zeminde metin rengi olarak kullanılmaz**;
-    açık zeminde altın metin = `champagne-deep` (~5.3:1). Lacivert üzerinde `champagne` (~6.4:1).
-  - Koyu bölümler için `surface-navy` sınıfı (veya `<Section surface="navy">`): metin,
+- **Renkler** (`globals.css`): `ink-950 #131210`, `ink-900/800/700`, `paper #F6F4EF`,
+  `paper-deep #ECE8E0`, `stone #A69E90`, `stone-deep #6B6458`, `ink-muted #57534B`,
+  `line #D7D1C5`.
+  - `stone` kırık beyaz üzerinde ~2.4:1 → **açık zeminde metin rengi olarak kullanılmaz**;
+    açık zeminde vurgu metni = `stone-deep` (~5.3:1). Mürekkep üzerinde `stone` (~7.1:1).
+  - Koyu bölümler için `surface-ink` sınıfı (veya `<Section surface="ink">`): metin,
     çizgi ve odak rengi otomatik tersine döner.
 - **Tipografi:** başlıklar Bodoni Moda (logodaki yüksek kontrastlı harflerle akraba);
   `opsz 28` + 500 ağırlık sabitlenmiştir — otomatik optik boyut büyük puntoda kılcal
@@ -228,12 +235,12 @@ ikonu tekrar edilmez — terazi yalnızca logonun içinde görünür.
   `max-w-measure` (40rem).
 - **Köşeler:** neredeyse keskin (`--radius: 0.125rem`). Yuvarlak kart dizileri yok.
 - **Ritim:** ardışık bölümler aynı yerleşimi tekrarlamaz (tam genişlik / asimetrik split /
-  lacivert bant / liste / bilgi şeridi). 3'lü özellik kartı, gradyan, glassmorphism,
+  mürekkep bant / liste / bilgi şeridi). 3'lü özellik kartı, gradyan, glassmorphism,
   dekoratif blob, uydurma metrik yasak.
 - **Motion:** ölçülü. İlk ekran: CSS `animate-rise` (JS'siz çalışır, reduced-motion'da
   tamamen kapanır). Kaydırma: `Reveal` (`rise` | `fade` | `line`), listelerde
   `RevealGroup` + `RevealItem` (stagger), `FlowLine` (bir kez çizilir).
-  Hover: kart üst çizgisinin altın renkte çizilmesi, yayın başlığının altının çizilmesi,
+  Hover: kart üst çizgisinin taş renginde çizilmesi, yayın başlığının altının çizilmesi,
   ok ikonlarının kayması, ekip fotoğrafında hafif yakınlaşma. Header kaydırınca ince çizgi
   ve gölge alır, logo hafif küçülür (yükseklik sabit, layout kayması yok).
   `MotionConfig reducedMotion="user"` + CSS reduced-motion kuralı. Parallax,
@@ -365,7 +372,8 @@ TBB Reklam Yasağı Yönetmeliği:
   eylemi, bilesenler, robots/sitemap çıkarılır; form → `contact-form.static.tsx`.
   `scripts/pages/finalize.mjs`: önyükleme parçalarını düz adla kopyalar (aksi halde
   prefetch 404), `.nojekyll`, yer tutucu yayın yolunu siler.
-- Alt yol: `next/image` basePath eklemez → `Logo` `basePath + src` kullanır; mutlak URL'ler
+- Alt yol: `next/image` basePath eklemez → `public/` görselleri `basePath + src` ile
+  verilmeli (logo satır içi SVG olduğu için etkilenmez); mutlak URL'ler
   `absoluteUrl()` ile (site adresi alt yol içerebilir). Yol karşılaştırmalarında
   `normalizePath()` (sondaki "/").
 

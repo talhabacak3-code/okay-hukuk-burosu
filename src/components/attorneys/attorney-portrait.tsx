@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 /**
  * Avukat portresi: yalnızca kişinin onayladığı gerçek fotoğraf. Fotoğraf yoksa baş
  * harflerden oluşan monogram gösterilir — monogram bir portre izlenimi vermez.
- * `framed`: arkada kaydırılmış ince altın çerçeve (profil sayfası).
+ * `framed`: arkada kaydırılmış ince taş rengi çerçeve (profil sayfası).
  */
 export function AttorneyPortrait({
   attorney,
@@ -27,7 +27,7 @@ export function AttorneyPortrait({
       {framed ? (
         <span
           aria-hidden="true"
-          className="absolute inset-0 translate-x-3 translate-y-3 border border-champagne/50 md:translate-x-4 md:translate-y-4"
+          className="absolute inset-0 translate-x-3 translate-y-3 border border-stone/50 md:translate-x-4 md:translate-y-4"
         />
       ) : null}
       <div className="relative aspect-[4/5] overflow-hidden bg-paper-deep">
@@ -43,9 +43,9 @@ export function AttorneyPortrait({
         ) : (
           <div
             aria-hidden="true"
-            className="absolute inset-4 flex flex-col items-center justify-center gap-4 border border-champagne/60 transition-[inset] duration-700 ease-editorial group-hover:inset-3"
+            className="absolute inset-4 flex flex-col items-center justify-center gap-4 border border-stone/60 transition-[inset] duration-700 ease-editorial group-hover:inset-3"
           >
-            <span className="font-serif text-[clamp(3rem,7vw,5.5rem)] leading-none tracking-[0.06em] text-navy-950/85">
+            <span className="font-serif text-[clamp(3rem,7vw,5.5rem)] leading-none tracking-[0.06em] text-ink-950/85">
               {initials(attorney.fullName)}
             </span>
             <span className="eyebrow text-[0.625rem] text-muted-foreground">

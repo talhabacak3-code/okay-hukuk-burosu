@@ -1,26 +1,20 @@
 /**
- * Onaylı logo varlıkları. Dosyalar `scripts/branding/prepare-logo.mjs` ile
- * `public/branding/okay-logo-original.png` kaynağından üretilir; logonun
- * içeriği değiştirilmez, yalnızca boş alan kırpılır ve beyaz zemin saydamlaştırılır.
+ * Onaylı marka varlıkları. Amblem (terazi · sütunlar · hilal · ok) müşterinin verdiği
+ * `public/branding/okay-mark-original.png` dosyasıdır; `scripts/branding/prepare-mark.mjs`
+ * onu biçimini değiştirmeden vektörleştirir ve aşağıdaki türevleri üretir.
+ * Sitede logo <Logo> (amblem + "OKAY HUKUK DANIŞMANLIK" yazısı) ile gösterilir.
  */
 export const brandAssets = {
-  /** Müşterinin onayladığı özgün dosya (1536×1024, beyaz zemin). Değiştirilmez. */
+  /** Müşterinin verdiği özgün amblem (864×1184, beyaz zemin). Değiştirilmez. */
   original: {
-    src: "/branding/okay-logo-original.png",
-    width: 1536,
-    height: 1024,
+    src: "/branding/okay-mark-original.png",
+    width: 864,
+    height: 1184,
   },
-  /** Boş alanı kırpılmış, orijinal beyaz zeminli sürüm. */
-  cropped: { src: "/branding/okay-logo.png", width: 1361, height: 503 },
-  /**
-   * Beyaz zemini saydamlaştırılmış sürüm — YALNIZCA AÇIK ZEMİNLER İÇİN.
-   * Lacivert harfler koyu zeminde okunmaz; vektör (SVG) değildir.
-   */
-  transparent: {
-    src: "/branding/okay-logo-transparent.png",
-    width: 1361,
-    height: 503,
-  },
+  /** Vektör amblem, mürekkep rengi (bağımsız kullanım için). */
+  markSvg: { src: "/branding/okay-mark.svg" },
+  /** Kırık beyaz zeminli amblem PNG'si — yapılandırılmış veri (JSON-LD) logosu. */
+  markPng: { src: "/branding/okay-mark.png" },
 } as const
 
-export const logoAlt = "OKAY Hukuk Danışmanlık & Arabuluculuk logosu"
+export const logoAlt = "OKAY Hukuk Danışmanlık logosu"

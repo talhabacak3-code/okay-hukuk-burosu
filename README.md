@@ -72,13 +72,22 @@ Sayfa listesi `src/config/routes.ts` dosyasından yönetilir; menüler, metadata
 
 ## Logo
 
-Onaylı kaynak: `public/branding/okay-logo-original.png`. Web sürümleri şu komutla yeniden üretilir:
+Onaylı amblem: `public/branding/okay-mark-original.png` (terazi, sütunlar, hilal ve ok).
+Sitede logo, bu amblem ile "OKAY / HUKUK DANIŞMANLIK" yazısından oluşur (`<Logo>`).
+Amblem vektörü, favicon ve JSON-LD görseli şu komutla yeniden üretilir (kaynakla örtüşme
+denetlenir):
 
 ```bash
-node scripts/branding/prepare-logo.mjs
+npm run brand:logo
 ```
 
-Üretilen `okay-logo-transparent.png` yalnızca açık zeminler içindir. Kurallar: CLAUDE.md → Logo kuralları.
+Paylaşım görseli (`src/app/opengraph-image.png`) geliştirme sunucusu açıkken üretilir:
+
+```bash
+npm run brand:og -- http://localhost:3000
+```
+
+Kurallar: CLAUDE.md → Logo kuralları.
 
 ## Yer tutucular — büro tarafından sağlanması gerekenler
 

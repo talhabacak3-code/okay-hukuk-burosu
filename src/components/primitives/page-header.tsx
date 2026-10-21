@@ -36,7 +36,7 @@ export function PageHeader({
           <span aria-hidden="true" className="block h-px w-full bg-border" />
         </Reveal>
         <div className="mt-6 grid gap-6 md:mt-8 md:grid-cols-12 md:gap-8">
-          <p className="tagline-rule-start animate-rise self-start eyebrow text-champagne-deep md:col-span-3 lg:col-span-2">
+          <p className="tagline-rule-start animate-rise self-start eyebrow text-stone-deep md:col-span-3 lg:col-span-2">
             {marker}
           </p>
           <div className="md:col-span-9 lg:col-span-8">

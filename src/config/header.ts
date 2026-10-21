@@ -1,5 +1,5 @@
 /**
- * Koyu hero'su olan sayfalar: başlık hero üzerindeyken lacivert ve logosuz görünür,
+ * Koyu hero'su olan sayfalar: başlık hero üzerindeyken mürekkep renkli ve logosuz görünür,
  * hero geçilince açık temaya döner (bkz. HeaderShell ve globals.css → .site-header).
  */
 export const DARK_HERO_PATHS: ReadonlySet<string> = new Set(["/", "/iletisim"])

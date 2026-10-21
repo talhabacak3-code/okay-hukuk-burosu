@@ -57,11 +57,11 @@ export function describedBy(
 }
 
 export const inputClass = cn(
-  "w-full rounded-[var(--radius)] border border-navy-950/25 bg-paper px-4 text-base text-navy-950",
+  "w-full rounded-[var(--radius)] border border-ink-950/25 bg-paper px-4 text-base text-ink-950",
   "transition-[border-color,box-shadow] duration-200",
   "placeholder:text-muted-foreground/70",
-  "hover:border-navy-950/50",
-  "focus-visible:border-navy-950 focus-visible:outline-2 focus-visible:outline-offset-2",
+  "hover:border-ink-950/50",
+  "focus-visible:border-ink-950 focus-visible:outline-2 focus-visible:outline-offset-2",
   "aria-invalid:border-destructive aria-invalid:bg-destructive/5",
   "disabled:cursor-not-allowed disabled:opacity-60",
 )

@@ -33,7 +33,7 @@ export function LoginForm({ configured }: { configured: boolean }) {
       {!configured ? (
         <p
           role="note"
-          className="border-l-2 border-champagne bg-paper-deep p-4 text-sm leading-relaxed"
+          className="border-l-2 border-stone bg-paper-deep p-4 text-sm leading-relaxed"
         >
           Supabase bağlantısı yapılandırılmadığı için giriş yapılamaz.
         </p>

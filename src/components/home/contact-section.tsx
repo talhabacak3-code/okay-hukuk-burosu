@@ -47,7 +47,7 @@ export async function ContactSection() {
             title="İletişim ve konum"
           />
           <Reveal>
-            <dl className="mt-10 border-t border-navy-950">
+            <dl className="mt-10 border-t border-ink-950">
               {facts.map((fact) => (
                 <div
                   key={fact.term}
@@ -68,7 +68,7 @@ export async function ContactSection() {
           <figure className="relative">
             <span
               aria-hidden="true"
-              className="absolute inset-0 -translate-x-3 translate-y-3 border border-champagne/50"
+              className="absolute inset-0 -translate-x-3 translate-y-3 border border-stone/50"
             />
             <div className="relative flex aspect-[4/3] flex-col justify-between overflow-hidden bg-paper-deep p-6 sm:aspect-[5/4] md:p-8">
               {/* Soyut ızgara — gerçek bir harita izlenimi vermez. */}
@@ -76,7 +76,7 @@ export async function ContactSection() {
                 aria-hidden="true"
                 className="absolute inset-0 bg-[linear-gradient(var(--color-line)_1px,transparent_1px),linear-gradient(90deg,var(--color-line)_1px,transparent_1px)] bg-[size:48px_48px] opacity-50"
               />
-              <p className="relative eyebrow text-champagne-deep">Konum</p>
+              <p className="relative eyebrow text-stone-deep">Konum</p>
               <div className="relative">
                 <p className="font-serif text-h2">{location.city}</p>
                 <p className="mt-1 text-muted-foreground">{location.country}</p>

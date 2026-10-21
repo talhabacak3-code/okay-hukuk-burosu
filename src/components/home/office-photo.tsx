@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
  * Büro fotoğrafı alanı. YALNIZCA büronun gerçek fotoğrafı kullanılır (stok veya üretilmiş
  * görsel yok). Fotoğraf sağlanana kadar çerçeve, açıkça "Eklenecek" etiketli boş alan
  * olarak görünür. Arkadaki kaydırılmış ince çerçeve paspartu etkisi verir.
- * `tone`: "dark" lacivert zemin (hero), "light" krem zemin (Hakkımızda).
+ * `tone`: "dark" mürekkep zemin (hero), "light" krem zemin (Hakkımızda).
  */
 export async function OfficePhoto({
   className,
@@ -31,24 +31,24 @@ export async function OfficePhoto({
         aria-hidden="true"
         className={cn(
           "absolute inset-0 translate-x-3 translate-y-3 border md:translate-x-5 md:translate-y-5",
-          dark ? "border-champagne/35" : "border-champagne/60",
+          dark ? "border-stone/35" : "border-stone/60",
         )}
       />
       <div
         className={cn(
           "relative animate-unveil overflow-hidden [animation-delay:200ms]",
           aspect,
-          dark ? "bg-navy-900" : "bg-paper-deep",
+          dark ? "bg-ink-900" : "bg-paper-deep",
         )}
       >
         {!photo ? (
           <div
             className={cn(
               "absolute inset-3 flex flex-col items-center justify-center gap-4 border p-6 text-center md:inset-4",
-              dark ? "border-paper/10" : "border-navy-950/10",
+              dark ? "border-paper/10" : "border-ink-950/10",
             )}
           >
-            <span aria-hidden="true" className="h-px w-10 bg-champagne/70" />
+            <span aria-hidden="true" className="h-px w-10 bg-stone/70" />
             <p
               className={cn(
                 "eyebrow",

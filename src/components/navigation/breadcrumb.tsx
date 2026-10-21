@@ -53,7 +53,7 @@ export function Breadcrumb({
                   >
                     {item.label}
                   </Link>
-                  <span aria-hidden="true" className="h-px w-4 bg-champagne" />
+                  <span aria-hidden="true" className="h-px w-4 bg-stone" />
                 </>
               )}
             </li>
